@@ -5,13 +5,18 @@ export const unfollowUser = async (req, res) => {
     // logic
     try {
         // current user
-        let currentUser = await User.findByIdAndUpdate(req.user.id, {
-            $pull: { following: req.params.id }
+        let currentUser = await User.findById(req.user.id).select('name userName profilePicture')
+        // the user who is getting followed
+        let followedUser = await User.findById(req.params.id).select('name userName profilePicture')
+
+        // pulling followed user object in current user following
+        await User.findByIdAndUpdate(currentUser.id, {
+            $pull: { following: followedUser }
         })
 
-        // the user who is getting followed
-        let followedUser = await User.findByIdAndUpdate(req.params.id, {
-            $pull: { followers: req.user.id }
+        // pulling current user object in followed user followers 
+        await User.findByIdAndUpdate(followedUser.id, {
+            $pull: { followers: currentUser }
         })
 
         // response

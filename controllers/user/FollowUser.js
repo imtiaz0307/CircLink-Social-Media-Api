@@ -5,13 +5,18 @@ export const followUser = async (req, res) => {
     // logic
     try {
         // current user
-        let currentUser = await User.findByIdAndUpdate(req.user.id, {
-            $push: { following: req.params.id }
+        let currentUser = await User.findById(req.user.id).select('name userName profilePicture')
+        // the user who is getting followed
+        let followedUser = await User.findById(req.params.id).select('name userName profilePicture')
+
+        // pushing followed user object in current user following
+        await User.findByIdAndUpdate(currentUser.id, {
+            $push: { following: followedUser }
         })
 
-        // the user who is getting followed
-        let followedUser = await User.findByIdAndUpdate(req.params.id, {
-            $push: { followers: req.user.id }
+        // pushing current user object in followed user followers 
+        await User.findByIdAndUpdate(followedUser.id, {
+            $push: { followers: currentUser }
         })
 
         // response
