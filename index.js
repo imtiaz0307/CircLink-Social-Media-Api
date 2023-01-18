@@ -22,8 +22,8 @@ app.use(cors())
 app.use(express.json())
 
 // routes
-app.use('/auth', userRouter)
-app.use('/post', postRouter)
+app.use('/api/users', userRouter)
+app.use('/api/posts', postRouter)
 
 // app connection
 app.listen(PORT, () => console.log('Server running.'))

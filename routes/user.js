@@ -31,22 +31,22 @@ router.post(
 router.post('/login', login)
 
 // get current user
-router.get('/getcurrent', verifyUser, getCurrentUser)
+router.get('/me', verifyUser, getCurrentUser)
 
 // get user
-router.get('/getuser/:id', getUser)
+router.get('/:id', getUser)
 
 // edit profile
-router.put('/edit', verifyUser, editProfile)
+router.put('/update', verifyUser, editProfile)
 
 // delete profile
 router.delete('/delete', verifyUser, deleteProfile)
 
 // follow a user 
-router.put('/follow/:id', verifyUser, followUser)
+router.put('/:id/follow', verifyUser, followUser)
 
 // unfollow a user 
-router.put('/unfollow/:id', verifyUser, unfollowUser)
+router.put('/:id/unfollow', verifyUser, unfollowUser)
 
 
 export default router;
