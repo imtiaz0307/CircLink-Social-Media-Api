@@ -11,6 +11,7 @@ import { getComment } from '../controllers/comment/GetComment.js'
 import { editComment } from '../controllers/comment/EditComment.js'
 import { deleteComment } from '../controllers/comment/DeleteComment.js'
 import { likeUnlikeComment } from '../controllers/comment/LikeUnlikeComment.js'
+import { publicPosts } from '../controllers/post/PublicFeed.js'
 
 // constants
 const router = Router()
@@ -53,5 +54,7 @@ router.delete('/:postid/comments/:commentid/delete', verifyUser, deleteComment)
 // like/unlike comment
 router.put('/:postid/comments/:commentid/react', verifyUser, likeUnlikeComment)
 
+// public feed 
+router.get('/', publicPosts)
 
 export default router
