@@ -35,7 +35,7 @@ router.put('/:id/react', verifyUser, likeUnlikePost)
 
 
 // comments routes
-
+// get comment
 router.get('/:postid/comments/:commentid', getComment)
 
 // create comment
