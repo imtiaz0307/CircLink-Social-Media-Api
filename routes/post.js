@@ -12,6 +12,7 @@ import { editComment } from '../controllers/comment/EditComment.js'
 import { deleteComment } from '../controllers/comment/DeleteComment.js'
 import { likeUnlikeComment } from '../controllers/comment/LikeUnlikeComment.js'
 import { publicPosts } from '../controllers/post/PublicFeed.js'
+import { userAndFriendsPosts } from '../controllers/post/UserAndFriendsPosts.js'
 
 // constants
 const router = Router()
@@ -55,6 +56,9 @@ router.delete('/:postid/comments/:commentid/delete', verifyUser, deleteComment)
 router.put('/:postid/comments/:commentid/react', verifyUser, likeUnlikeComment)
 
 // public feed 
-router.get('/', publicPosts)
+router.get('/public/explore', verifyUser, publicPosts)
+
+// user timeline
+router.get('/', verifyUser, userAndFriendsPosts)
 
 export default router
