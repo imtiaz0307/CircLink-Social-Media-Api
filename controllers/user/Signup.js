@@ -12,7 +12,7 @@ const JWT_SECRET = process.env.JWT_SECRET
 
 // function
 export const signup = async (req, res) => {
-    // Finds the validation errors in this request and wraps them in an object with handy functions
+    // if something goes wrong during validation
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
