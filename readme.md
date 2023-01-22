@@ -55,7 +55,7 @@ The API uses JSON Web Tokens for authentication and authorization. Passwords are
 The API can be deployed on a variety of hosting platforms, such as Heroku or AWS. Make sure to properly configure the environment variables and set up a production-ready database.
 
 ## Support
-For any support or questions, please open an issue or contact the maintainers of the repository.
+For any support or questions, please open an issue or contact me.
 
 ## Acknowledgements
 Special thanks to the open-source community for providing the tools and resources used in this project.
