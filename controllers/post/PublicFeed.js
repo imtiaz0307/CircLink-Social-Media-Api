@@ -13,6 +13,6 @@ export const publicPosts = async (req, res) => {
         // response
         res.status(200).json(posts)
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }

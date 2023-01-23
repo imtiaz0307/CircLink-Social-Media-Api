@@ -37,8 +37,8 @@ export const createComment = async (req, res) => {
         await comment.save()
 
         // response
-        res.status(200).send(`You commented ${content} on ${post.user.userName}'s post`)
+        res.status(200).json({ success: `You commented ${content} on ${post.user.userName}'s post` })
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }

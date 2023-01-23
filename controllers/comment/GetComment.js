@@ -7,11 +7,11 @@ export const getComment = async (req, res) => {
             id: req.params.commentid,
             postid: req.params.postid
         })
-        if (!comment) return res.status(404).send('No comment found.')
+        if (!comment) return res.status(404).json({ error: 'No comment found.' })
 
         // response
         res.status(200).json(comment)
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }

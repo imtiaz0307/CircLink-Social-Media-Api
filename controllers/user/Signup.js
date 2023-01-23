@@ -22,11 +22,11 @@ export const signup = async (req, res) => {
     try {
         // checking if the user with same username exists
         let user = await User.findOne({ userName: req.body.userName })
-        if (user) return res.status(409).send('Username Taken.')
+        if (user) return res.status(409).json({ error: 'Username Taken.' })
 
         // checking if the user with same email exists
         user = await User.findOne({ email: req.body.email })
-        if (user) return res.status(409).send('Email belongs to another account.')
+        if (user) return res.status(409).json({ error: 'Email belongs to another account.' })
 
         // hashing salting password
         const salt = await bcrypt.genSalt(10)
@@ -51,6 +51,6 @@ export const signup = async (req, res) => {
         // response
         res.status(200).json({ token: authToken })
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }

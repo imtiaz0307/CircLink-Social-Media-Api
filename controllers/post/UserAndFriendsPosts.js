@@ -20,6 +20,6 @@ export const userAndFriendsPosts = async (req, res) => {
         // concating following posts array in userposts array and sending it as response
         res.json(posts.concat(...followingPosts))
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }

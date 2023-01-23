@@ -16,11 +16,11 @@ export const login = async (req, res) => {
         try {
             // finding user by username
             let user = await User.findOne({ userName: req.body.userName })
-            if (!user) return res.status(404).send('Invalid Credentials.')
+            if (!user) return res.status(404).json({ error: 'Invalid Credentials.' })
 
             // comparing password
             req.body.password = await bcrypt.compare(req.body.password, user.password)
-            if (!req.body.password) return res.status(404).send('Invalid Credentials.')
+            if (!req.body.password) return res.status(404).json({ error: 'Invalid Credentials.' })
 
             // auth token
             const payload = {
@@ -33,7 +33,7 @@ export const login = async (req, res) => {
             // response
             res.status(201).json({ token: authToken })
         } catch (error) {
-            return res.status(500).send(error)
+            return res.status(500).json({ erorr: error })
         }
     }
 
@@ -42,11 +42,11 @@ export const login = async (req, res) => {
         try {
             // finding user by username
             let user = await User.findOne({ email: req.body.email })
-            if (!user) return res.status(404).send('Invalid Credentials.')
+            if (!user) return res.status(404).json({ error: 'Invalid Credentials.' })
 
             // comparing password
             req.body.password = await bcrypt.compare(req.body.password, user.password)
-            if (!req.body.password) return res.status(404).send('Invalid Credentials.')
+            if (!req.body.password) return res.status(404).json({ error: 'Invalid Credentials.' })
 
             // auth token
             const payload = {
@@ -59,7 +59,7 @@ export const login = async (req, res) => {
             // response
             res.status(201).json({ token: authToken })
         } catch (error) {
-            return res.status(500).send(error)
+            return res.status(500).json({ erorr: error })
         }
     }
 }

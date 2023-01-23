@@ -1,7 +1,7 @@
 import { User } from "../../models/User.js"
 
 export const followUser = async (req, res) => {
-    if (req.params.id === req.user.id) return res.status(403).send("You can't follow yourself.")
+    if (req.params.id === req.user.id) return res.status(403).json({ error: "You can't follow yourself." })
     // logic
     try {
         // current user
@@ -20,8 +20,8 @@ export const followUser = async (req, res) => {
         })
 
         // response
-        res.status(200).send(`${currentUser.userName} started following ${followedUser.userName}.`)
+        res.status(200).json({ error: `${currentUser.userName} started following ${followedUser.userName}.` })
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }

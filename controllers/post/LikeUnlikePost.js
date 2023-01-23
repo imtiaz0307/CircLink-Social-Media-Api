@@ -8,7 +8,7 @@ export const likeUnlikePost = async (req, res) => {
 
         // checking if post exists
         const post = await Post.findById(req.params.id)
-        if (!post) return res.status(404).send('No post found.')
+        if (!post) return res.status(404).json({ error: 'No post found.' })
 
         // if user has already like the post
         if (post.likes.includes(user.id)) {
@@ -19,7 +19,7 @@ export const likeUnlikePost = async (req, res) => {
                 }
             })
             // response
-            res.status(200).send(`You unliked ${post.user.name}'s post.`)
+            res.status(200).json({ success: `You unliked ${post.user.name}'s post.` })
         }
         else {
             // adding userid to post likes
@@ -29,9 +29,9 @@ export const likeUnlikePost = async (req, res) => {
                 }
             })
             // response
-            res.status(200).send(`You liked ${post.user.name}'s post.`)
+            res.status(200).json({ error: `You liked ${post.user.name}'s post.` })
         }
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ erorr: error })
     }
 }
