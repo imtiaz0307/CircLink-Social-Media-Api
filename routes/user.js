@@ -34,7 +34,7 @@ router.post('/login', login)
 router.get('/me', verifyUser, getCurrentUser)
 
 // get user
-router.get('/:id', getUser)
+router.get('/:username', getUser)
 
 // edit profile
 router.put('/update', verifyUser, editProfile)
