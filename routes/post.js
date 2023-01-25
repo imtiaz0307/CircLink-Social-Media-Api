@@ -13,6 +13,7 @@ import { deleteComment } from '../controllers/comment/DeleteComment.js'
 import { likeUnlikeComment } from '../controllers/comment/LikeUnlikeComment.js'
 import { publicPosts } from '../controllers/post/PublicFeed.js'
 import { userAndFriendsPosts } from '../controllers/post/UserAndFriendsPosts.js'
+import { getUserPosts } from '../controllers/post/GetUserPosts.js'
 
 // constants
 const router = Router()
@@ -60,5 +61,8 @@ router.get('/public/explore', verifyUser, publicPosts)
 
 // user timeline
 router.get('/', verifyUser, userAndFriendsPosts)
+
+// get specified user's posts
+router.get('/getuserposts/:username', getUserPosts)
 
 export default router
