@@ -6,7 +6,7 @@ This API allows for the creation and management of user accounts, posts, and int
 - `/api/users/signup`: Allows for the creation of a new user account.
 - `/api/users/login`: Allows for a user to log in to their existing account.
 - `/api/users/me`: Returns the currently logged in user's information.
-- `/api/users/:userId`: Returns the information of the specified user.
+- `/api/users/:username`: Returns the information of the specified user.
 - `/api/users/:userId/follow`: Allows the currently logged in user to follow the specified user.
 - `/api/users/:userid/unfollow`: Allows the currently logged in user to unfollow the specified user.
 - `/api/users/update`: Allows the currently logged in user to edit their profile information.
