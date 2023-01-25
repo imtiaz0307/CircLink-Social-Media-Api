@@ -23,6 +23,7 @@ This API allows for the creation and management of user accounts, posts, and int
 - `/api/posts/:postid/comments/:commentid/react`: Allows the currently logged in user to like and unlike a comment on post
 - `/api/posts/public/explore`: Returns all posts made on the platform, excluding those made by the currently logged in user.
 - `/api/posts`: Returns all posts made on the platform by the current user and the users that are followed by current users.
+- `/api/posts/getuserposts/:username`: Returns user specified posts.
 
 ## Technologies Used
 - Node.js
