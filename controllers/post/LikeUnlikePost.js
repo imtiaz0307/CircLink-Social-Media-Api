@@ -29,7 +29,7 @@ export const likeUnlikePost = async (req, res) => {
                 }
             })
             // response
-            res.status(200).json({ error: `You liked ${post.user.name}'s post.` })
+            res.status(200).json({ success: `You liked ${post.user.name}'s post.` })
         }
     } catch (error) {
         return res.status(500).json({ erorr: error })
