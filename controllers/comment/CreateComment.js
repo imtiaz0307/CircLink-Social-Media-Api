@@ -1,4 +1,3 @@
-import { User } from "../../models/User.js";
 import { Post } from "../../models/Post.js";
 import { Comment } from "../../models/Comment.js";
 import { validationResult } from "express-validator";
@@ -36,7 +35,6 @@ export const createComment = async (req, res) => {
         // response
         res.status(200).json({ success: `You commented ${content}.` })
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ erorr: error })
     }
 }
