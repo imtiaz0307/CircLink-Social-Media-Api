@@ -13,21 +13,18 @@ export const createComment = async (req, res) => {
 
     const { content } = req.body;
     try {
-        // finding user by id
-        const user = await User.findById(req.user.id).select('name userName profilePicture')
-
         // finding post by id
-        const post = await Post.findById(req.params.id)
+        const post = await Post.findById(req.params.postid)
 
         // creating comment
         const comment = await Comment.create({
             postid: post.id,
-            user,
+            userid: req.user.id,
             content
         })
 
         // pushing comment to Post comments
-        await Post.findByIdAndUpdate(req.params.id, {
+        await Post.findByIdAndUpdate(req.params.postid, {
             $push: {
                 comments: comment.id
             }
@@ -37,8 +34,9 @@ export const createComment = async (req, res) => {
         await comment.save()
 
         // response
-        res.status(200).json({ success: `You commented ${content} on ${post.user.userName}'s post` })
+        res.status(200).json({ success: `You commented ${content}.` })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ erorr: error })
     }
 }

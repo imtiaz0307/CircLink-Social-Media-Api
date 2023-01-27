@@ -63,6 +63,6 @@ router.get('/public/explore', verifyUser, publicPosts)
 router.get('/', verifyUser, userAndFriendsPosts)
 
 // get specified user's posts
-router.get('/getuserposts/:username', getUserPosts)
+router.get('/getuserposts/:id', getUserPosts)
 
 export default router

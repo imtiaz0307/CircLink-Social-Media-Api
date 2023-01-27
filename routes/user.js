@@ -5,6 +5,7 @@ import { editProfile } from "../controllers/user/EditProfile.js";
 import { followUser } from "../controllers/user/FollowUser.js";
 import { getCurrentUser } from "../controllers/user/GetCurrent.js";
 import { getUser } from "../controllers/user/GetUser.js";
+import { getUserById } from "../controllers/user/GetUserById.js";
 import { login } from "../controllers/user/Login.js";
 import { signup } from "../controllers/user/Signup.js";
 import { unfollowUser } from "../controllers/user/UnfollowUser.js";
@@ -35,6 +36,9 @@ router.get('/me', verifyUser, getCurrentUser)
 
 // get user
 router.get('/:username', getUser)
+
+// get user
+router.get('/id/:id', getUserById)
 
 // edit profile
 router.put('/update', verifyUser, editProfile)

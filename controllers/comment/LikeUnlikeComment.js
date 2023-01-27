@@ -19,7 +19,7 @@ export const likeUnlikeComment = async (req, res) => {
                 }
             })
             // response
-            res.status(200).json({ success: `You unliked ${comment.user.name}'s comment.` })
+            res.status(200).json({ success: `You unliked the comment.` })
         }
         else {
             // adding userid to comment likes
@@ -29,7 +29,7 @@ export const likeUnlikeComment = async (req, res) => {
                 }
             })
             // response
-            res.status(200).json({ success: `You liked ${comment.user.name}'s comment.` })
+            res.status(200).json({ success: `You liked the comment.` })
         }
     } catch (error) {
         return res.status(500).json({ erorr: error })

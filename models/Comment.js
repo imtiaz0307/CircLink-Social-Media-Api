@@ -6,9 +6,9 @@ const commentSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'post'
         },
-        user: {
-            type: Object,
-            required: true
+        userid: {
+            type: Schema.Types.ObjectId,
+            ref: 'user'
         },
         content: {
             type: String,

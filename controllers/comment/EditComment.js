@@ -11,7 +11,7 @@ export const editComment = async (req, res) => {
         const comment = await Comment.findById(req.params.commentid)
 
         // if the current user doesn't own the comment
-        if (comment.user._id.toString() !== user.id) return res.status(403).json({ error: 'Access denied.' })
+        if (comment.userid.toString() !== user.id) return res.status(403).json({ error: 'Access denied.' })
 
         // finding comment by id and updating it
         await Comment.findByIdAndUpdate(comment.id, {

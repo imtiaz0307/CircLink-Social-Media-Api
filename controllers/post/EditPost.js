@@ -11,7 +11,7 @@ export const editPost = async (req, res) => {
         const post = await Post.findById(req.params.id)
 
         // if the current user doesn't own the post
-        if (post.user._id.toString() !== user.id) return res.status(403).json({ error: 'Access denied.' })
+        if (post.userid.toString() !== user.id) return res.status(403).json({ error: 'Access denied.' })
 
         // finding post by id and updating it
         await Post.findByIdAndUpdate(post.id, {

@@ -7,7 +7,7 @@ export const publicPosts = async (req, res) => {
 
         // filtering out the current user's posts.
         posts = posts.filter(post => {
-            return post.user._id.toString() !== req.user.id
+            return post.userid.toString() !== req.user.id
         })
 
         // response
