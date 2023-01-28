@@ -3,7 +3,7 @@ import { User } from "../../models/User.js"
 export const getUserById = async (req, res) => {
     try {
         // finding user by id
-        const user = await User.findOne({ id: req.params.id }).select('-password')
+        const user = await User.findOne({ _id: req.params.id }).select('-password')
         if (!user) return res.status(404).json({ error: 'No user found.' })
 
         // response
