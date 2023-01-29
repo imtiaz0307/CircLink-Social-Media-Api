@@ -1,5 +1,6 @@
 import { Comment } from '../../models/Comment.js'
 import { User } from '../../models/User.js';
+import { Post } from '../../models/Post.js';
 
 export const deleteComment = async (req, res) => {
     try {
@@ -15,9 +16,17 @@ export const deleteComment = async (req, res) => {
         // finding comment by id and delete it
         await Comment.findByIdAndDelete(comment.id)
 
+        // finding post and removing comment from it
+        await Post.findByIdAndUpdate(req.params.postid, {
+            $pull: {
+                comments: req.params.commentid
+            }
+        })
+
         // response
         res.status(200).json({ success: 'Comment deleted successfully.' })
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ erorr: error })
     }
 }

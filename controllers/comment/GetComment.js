@@ -4,8 +4,7 @@ export const getComment = async (req, res) => {
     try {
         // finding comment
         const comment = await Comment.findOne({
-            id: req.params.commentid,
-            postid: req.params.postid
+            _id: req.params.commentid
         })
         if (!comment) return res.status(404).json({ error: 'No comment found.' })
 
