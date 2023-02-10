@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To My Social Media Api | A free social media api by Muhammad Imtiaz.</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main>
+        <h1 class="mainHeading">Social Media Api</h1>
+        <p>This API allows for the creation and management of user accounts, posts, and interactions on a social media
+            platform.</p>
+        <div class="routesContainer">
+            <h2>Endpoints</h2>
+            <ul class="apiRoutes">
+                <!-- user endpoints -->
+                <h3>User Endpoints</h3>
+                <li>
+                    <p class="endPointUrl">/api/users/signup</p>
+                    <p class="endPointDescription">
+                        Endpoint for creating an account returns auth-token. You must send the required Information
+                        through the request body:
+                    <ul class="requestDataMenu">
+                        <li>`name` => Name of the user. (required and must be atleast 6 characters)</li>
+                        <li>`userName` => Username of the user. (required and must be atleast 4 characters)</li>
+                        <li>`email` => Email of the user. (required and must be valid email address)</li>
+                        <li>`password` => Password of the user. (required and must be atleast 8 characters)</li>
+                        <li>`dateOfBirth` => Date Of Birth of the user. (required and must be converted into Date before
+                            sending the request)</li>
+                        <li>`gender` => Gender of the user. (required)</li>
+                        <li>`profilePicture` => Display/Profile picture of user. (optional but it must be converted into
+                            string, it might be link/base64 string)</li>
+                        <li>`coverPicture` => Cover picture of the user (optional but it must be converted into string,
+                            it might be link/base64 string)</li>
+                        <li>`city` => City the user is living in. (optional)</li>
+                    </ul>
+                    </p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/login</p>
+                    <p class="endPointDescription">
+                        Endpoint for user login returns auth-token. You must specify whether the user is logging with
+                        email or username on the client side. You must send the required Information through the request
+                        body:
+                    <ul class="requestDataMenu">
+                        <li>`userName` => Username of the user. (requied if the user is logging through username.)</li>
+                        <li>`email` => Email of the user. (required if the user is logging through email.)</li>
+                        <li>`password` => Password of the user. (required)</li>
+                    </ul>
+                    </p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/me</p>
+                    <p class="endPointDescription">Endpoint for getting the currently logged in user returns the current
+                        user details. You must send header item named 'auth-token' containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/:username</p>
+                    <p class="endPointDescription">Endpoint for getting any user by username returns the user details.
+                    </p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/id/:id</p>
+                    <p class="endPointDescription">Endpoint for getting any user by userid returns the user details.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/update</p>
+                    <p class="endPointDescription">Endpoint for updating currently logged in profile. You must send
+                        header item named 'auth-token' containing the auth-token of the current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/delete</p>
+                    <p class="endPointDescription">Endpoint for deleting currently logged in profile. You must send
+                        header item named 'auth-token' containing the auth-token of the current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/:id/follow</p>
+                    <p class="endPointDescription">Endpoint for following a user. You must send header item named
+                        'auth-token' containing the auth-token of the current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/users/:id/unfollow</p>
+                    <p class="endPointDescription">Endpoint for unfollowing a user. You must send header item named
+                        'auth-token' containing the auth-token of the current user as value.</p>
+                </li>
+
+                <!-- post endpoints -->
+                <h3>Post Endpoints</h3>
+                <li>/ap/posts</li>
+                <li>/api/posts/getuserposts/:userid</li>
+                <li>/api/posts/public/explore</li>
+                <li>/api/posts/create</li>
+                <li>/api/posts/:id</li>
+                <li>/api/posts/:id/edit</li>
+                <li>/api/posts/:id/delete</li>
+                <li>/api/posts/:id/react</li>
+
+                <!-- comment endpoints -->
+                <h3>Comment Endpoints</h3>
+                <li>/api/posts/:postid/comments/create</li>
+                <li>/api/posts/:postid/comments/:commentid</li>
+                <li>/api/posts/:postid/comments/:commentid/edit</li>
+                <li>/api/posts/:postid/comments/:commentid/delete</li>
+                <li>/api/posts/:postid/comments/:commentid/react</li>
+                <li>/api/posts/:postid/comments/:commentid/</li>
+            </ul>
+        </div>
+
+    </main>
+</body>
+
+</html>

@@ -6,7 +6,7 @@ export const getUserPosts = async (req, res) => {
         let posts = await Post.find()
 
         // filtering out user's posts
-        posts = posts.filter(post => post.userid.toString() == req.params.id)
+        posts = posts.filter(post => post.userid.toString() == req.params.userid)
         if (!posts) return res.status(404).json({ error: 'No post found.' })
 
         // response
