@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome To My Social Media Api | A free social media api by Muhammad Imtiaz.</title>
-    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -15,10 +14,9 @@
         <p>This API allows for the creation and management of user accounts, posts, and interactions on a social media
             platform.</p>
         <div class="routesContainer">
-            <h2>Endpoints</h2>
+            <h2>Endpoints:</h2>
             <ul class="apiRoutes">
                 <!-- user endpoints -->
-                <h3>User Endpoints</h3>
                 <li>
                     <p class="endPointUrl">/api/users/signup</p>
                     <p class="endPointDescription">
@@ -90,28 +88,217 @@
                 </li>
 
                 <!-- post endpoints -->
-                <h3>Post Endpoints</h3>
-                <li>/ap/posts</li>
-                <li>/api/posts/getuserposts/:userid</li>
-                <li>/api/posts/public/explore</li>
-                <li>/api/posts/create</li>
-                <li>/api/posts/:id</li>
-                <li>/api/posts/:id/edit</li>
-                <li>/api/posts/:id/delete</li>
-                <li>/api/posts/:id/react</li>
+                <li>
+                    <p class="endPointUrl">/ap/posts</p>
+                    <p class="endPointDescription">Endpoint for getting timeline posts, (posts of the currently logged
+                        in
+                        user and the
+                        users that are followed by the current user). You must send header item named 'auth-token'
+                        containing the auth-token of the
+                        current user as value.
+                    </p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/getuserposts/:userid</p>
+                    <p class="endPointDescription">Endpoint for getting the specified user posts.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/public/explore</p>
+                    <p class="endPointDescription">Endpoint for getting all the posts in database except the current
+                        user posts. You must send header item named 'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:id</p>
+                    <p class="endPointDescription">Endpoint for getting a specified post returns the post object. You
+                        must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/create</p>
+                    <p class="endPointDescription">Endpoint for creating a post. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value and send the required Information through the
+                        request
+                        body:
+                    <ul class="requestDataMenu">
+                        <li>`caption` => Caption for the post. (requied if the user is not uploading any file.)</li>
+                        <li>`file` => Image/Video. (required if the user doesn't wants to add caption.)</li>
+                        <li>Note: You can send both at a time.</li>
+                    </ul>
+                    </p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:id/edit</p>
+                    <p class="endPointDescription">Endpoint for editing a post. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:id/delete</p>
+                    <p class="endPointDescription">Endpoint for deleting a post. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:id/react</p>
+                    <p class="endPointDescription">Endpoint for liking/unliking a post. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
 
                 <!-- comment endpoints -->
-                <h3>Comment Endpoints</h3>
-                <li>/api/posts/:postid/comments/create</li>
-                <li>/api/posts/:postid/comments/:commentid</li>
-                <li>/api/posts/:postid/comments/:commentid/edit</li>
-                <li>/api/posts/:postid/comments/:commentid/delete</li>
-                <li>/api/posts/:postid/comments/:commentid/react</li>
-                <li>/api/posts/:postid/comments/:commentid/</li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:postid/comments/create</p>
+                    <p class="endPointDescription">Endpoint for creating a comment. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value and send the required Information through the
+                        request
+                        body:
+                    <ul class="requestDataMenu">
+                        <li>`caption` => Content of the comment. (required)</li>
+                    </ul>
+                    </p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:postid/comments/:commentid</p>
+                    <p class="endPointDescription">Endpoint for getting a specified comment. You must send header item
+                        named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:postid/comments/:commentid/edit</p>
+                    <p class="endPointDescription">Endpoint for editing a comment. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:postid/comments/:commentid/delete</p>
+                    <p class="endPointDescription">Endpoint for deleting a comment. You must send header item named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
+                <li>
+                    <p class="endPointUrl">/api/posts/:postid/comments/:commentid/react</p>
+                    <p class="endPointDescription">Endpoint for liking/unliking a comment. You must send header item
+                        named
+                        'auth-token'
+                        containing the auth-token of the
+                        current user as value.</p>
+                </li>
             </ul>
         </div>
-
     </main>
+    <footer>
+        <p>Found any mistakes, have more ideas? Feel free to contribute to the project: <a
+                href="https://github.com/imtiaz0307/social-media-app-api" target="_blank">Github</a></p>
+    </footer>
 </body>
+
+<!-- styles -->
+<style>
+    /* nunito font */
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    main {
+        max-width: 1300px;
+        margin: auto;
+        padding: 1rem;
+    }
+
+    .mainHeading {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    main>p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .routesContainer h2 {
+        font-size: 2.2rem;
+        text-decoration: underline;
+        margin-bottom: 1rem;
+    }
+
+    .apiRoutes {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        list-style-type: "▶";
+    }
+
+    .apiRoutes>li::marker {
+        color: red;
+    }
+
+    .endPointUrl {
+        background-color: #e4d4ff59;
+        padding: .5rem 1rem;
+        border-radius: 10px;
+    }
+
+    .endPointDescription {
+        padding: .5rem 1rem;
+    }
+
+    .requestDataMenu {
+        padding: 0 2rem;
+        list-style-type: disc;
+    }
+
+    .requestDataMenu li {
+        padding: .5rem;
+        background-color: #d1ffe059;
+        border-radius: 4px;
+    }
+
+    footer {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+        padding: 1rem;
+        background-color: #e4d4ff59;
+    }
+
+    @media screen and (max-width: 600px) {
+        .mainHeading {
+            font-size: 2rem;
+        }
+
+        main>p {
+            font-size: 1rem;
+        }
+
+        .routesContainer h2 {
+            font-size: 1.6rem;
+        }
+
+        footer {
+            font-size: 1rem;
+        }
+    }
+</style>
+
 
 </html>
