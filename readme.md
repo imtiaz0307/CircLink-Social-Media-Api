@@ -1,4 +1,4 @@
-# Social Media API
+# CircLink A Free Social Media API
 
 This API allows for the creation and management of user accounts, posts, and interactions on a social media platform.
 
